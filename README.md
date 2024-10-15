@@ -7,6 +7,12 @@ This project analyzes text data using natural language processing (NLP) techniqu
 
 > **⚠️ Important:** For optimal results, it is recommended to set the similarity threshold to **40%**. This threshold balances precision and recall, ensuring that similar captions are accurately identified without including too many false positives.
 
+## Example Image
+
+Below is an example image that illustrates the clustering process:
+
+![Clustering Example](images/image.jpg)
+
 
 ## Features
 
@@ -39,17 +45,9 @@ This project analyzes text data using natural language processing (NLP) techniqu
    ```bash
    python main.py
    ```
-3. **Output**: Similar caption pairs for different thresholds (10% to 100%) are saved in files like `similar_pairs_10-100%.txt`.
+3. **Output**: Similar caption pairs for different thresholds (10% to 100%) are saved in result texts like `similar_pairs_10-100%.txt`.
 
-## Example
-
-Sample text input:
-```
-Caption 1: This is a sample caption.
-Caption 2: Another sample text.
-```
-
-Output file (`similar_pairs_10-100%.txt`):
+Sample Output file (`similar_pairs_10-100%.txt`):
 ```
 Caption 0 and Caption 1 are 72.50% similar
 Caption 0: This is a sample caption.
@@ -58,4 +56,8 @@ Caption 1: Another sample text.
 
 ## TODO
 
+- [ ] instead of working with pairs , use group text Clustering ✔️
 - [ ] Implement a method to support list and dict of texts ✔️
+- [ ] OOP optimization ✔️
+- [ ] Support multitext files and texts ✔️
+- [ ] run just using a method ✔️
