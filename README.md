@@ -7,10 +7,6 @@ This project analyzes text data using natural language processing (NLP) techniqu
 
 > **⚠️ Important:** For optimal results, it is recommended to set the similarity threshold to **40%**. This threshold balances precision and recall, ensuring that similar captions are accurately identified without including too many false positives.
 
-## Example Image
-
-Below is an example image that illustrates the clustering process:
-
 ![Clustering Example](images/image.jpg)
 
 
