@@ -1,30 +1,61 @@
-This project is a Python-based implementation designed to analyze the similarity between textual captions using Natural Language Processing (NLP) techniques. The primary objective is to compare captions using TF-IDF (Term Frequency-Inverse Document Frequency) vectorization and measure the similarity between them using cosine similarity. Based on these similarity metrics, captions are grouped using DBSCAN clustering.
 
-The code performs the following tasks:
+# Text Similarity and Clustering
 
-    Cleans and preprocesses the captions, including removing special characters, numbers, and stopwords. It supports both English and Persian text.
-    Utilizes TF-IDF Vectorizer to convert the cleaned captions into vectors.
-    Computes cosine similarity scores between all pairs of captions.
-    Identifies and groups captions that meet a certain similarity threshold.
-    Outputs pairs of captions with similarity percentages for various thresholds (10% to 100%).
-    Optionally applies clustering algorithms like DBSCAN to group similar captions based on these scores.
+This project analyzes text data using natural language processing (NLP) techniques to find similarity between captions, leveraging TF-IDF and cosine similarity. Additionally, it clusters captions using DBSCAN and calculates evaluation metrics like silhouette score and Davies-Bouldin index.
 
-Features:
+## Recommended Threshold
 
-    Text Preprocessing: Removes stopwords, lemmatizes words, and supports basic Persian and English text cleaning.
-    TF-IDF Vectorization: Captions are converted into vectors based on their term frequency-inverse document frequency.
-    Cosine Similarity: Measures the similarity between pairs of captions, enabling comparison across a range of thresholds.
-    Threshold-Based Similarity Output: For each similarity threshold, the program generates a file containing pairs of captions and their similarity score.
-    Clustering with DBSCAN: Groups captions based on similarity scores, allowing for analysis of clusters of semantically similar content.
-    Memory Profiling: Monitors memory usage to ensure efficient handling of the dataset.
+> **⚠️ Important:** For optimal results, it is recommended to set the similarity threshold to **40%**. This threshold balances precision and recall, ensuring that similar captions are accurately identified without including too many false positives.
 
-Use Cases:
 
-    Content Moderation: Identify near-duplicate captions or detect plagiarism across text datasets.
-    Data Deduplication: Group similar captions together, useful in text-based datasets that require deduplication or organization.
-    Textual Analysis: Gain insights into how similar different captions or pieces of text are, with applications in NLP tasks like text summarization or classification.
+## Features
 
-Requirements:
+- **Text Preprocessing**: Removes special characters and stopwords, and performs lemmatization.
+- **TF-IDF Vectorization**: Converts text to vectors for comparison.
+- **Cosine Similarity**: Calculates similarity between pairs of captions.
+- **DBSCAN Clustering**: Groups similar captions.
+- **Similarity Thresholds**: Saves pairs of captions that meet similarity thresholds.
+- **Memory Profiling**: Tracks memory usage of the program.
 
-    Python 3.8+
-    Libraries: scikit-learn, pandas, nltk, numpy, memory-profiler
+## Setup
+
+1. Install the required Python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+2. Download necessary NLTK resources( automatically download in every runs ):
+   ```python
+   import nltk
+   nltk.download('stopwords')
+   nltk.download('punkt')
+   nltk.download('wordnet')
+   ```
+
+## How to Use
+
+1. **Input**: Place your text data in a file named `captions.txt`.
+2. **Run the Script**: Preprocess captions, calculate TF-IDF vectors, and find similar pairs of captions:
+   ```bash
+   python main.py
+   ```
+3. **Output**: Similar caption pairs for different thresholds (10% to 100%) are saved in files like `similar_pairs_10-100%.txt`.
+
+## Example
+
+Sample text input:
+```
+Caption 1: This is a sample caption.
+Caption 2: Another sample text.
+```
+
+Output file (`similar_pairs_10-100%.txt`):
+```
+Caption 0 and Caption 1 are 72.50% similar
+Caption 0: This is a sample caption.
+Caption 1: Another sample text.
+```
+
+## TODO
+
+- [ ] Implement a method to support list and dict of texts ✔️
