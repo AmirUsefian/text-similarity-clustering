@@ -54,6 +54,6 @@ Caption 1: Another sample text.
 
 - [ ] instead of working with pairs , use group text Clustering ✔️
 - [ ] Implement a method to support list and dict of texts ✔️
-- [ ] OOP optimization ✔️
+- [x] OOP optimization
 - [ ] Support multitext files and texts ✔️
 - [ ] run just using a method ✔️
